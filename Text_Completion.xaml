@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Text_Completion" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="850.4,1724" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:ufa="clr-namespace:UiPath.Form.Activities;assembly=UiPath.Form.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Text_Completion" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="850.4,1846.4" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:ufa="clr-namespace:UiPath.Form.Activities;assembly=UiPath.Form.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="36">
       <x:String>System.Activities</x:String>
@@ -92,23 +92,32 @@
       <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Text_Completion Sequence" sap:VirtualizedContainerService.HintSize="595.2,1659.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Text_Completion Sequence" sap:VirtualizedContainerService.HintSize="595.2,1781.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="strInput" />
       <Variable x:TypeArguments="x:String" Name="strInputShow" />
       <Variable x:TypeArguments="x:String" Name="strChatResponse" />
       <Variable x:TypeArguments="x:String" Name="strJsonRequestTemplate" />
+      <Variable x:TypeArguments="x:String" Name="strAPIKey" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
+    <Assign sap:VirtualizedContainerService.HintSize="532.8,81.6" sap2010:WorkflowViewState.IdRef="Assign_7">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[strAPIKey]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">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</InArgument>
+      </Assign.Value>
+    </Assign>
     <ui:ReadTextFile File="{x:Null}" Content="[strJsonRequestTemplate]" DisplayName="Read Text File" FileName="JsonRequest.txt" sap:VirtualizedContainerService.HintSize="532.8,80.8" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
-    <ufa:FormActivity CreateFormActivityFileName="{x:Null}" CreateFormActivityFilePath="{x:Null}" Dismissed="{x:Null}" FormFieldsInputData="{x:Null}" FormFieldsOutputData="{x:Null}" FormTitle="{x:Null}" IconPath="{x:Null}" LocalCSSFilePath="{x:Null}" SelectedButton="{x:Null}" TimeoutInSeconds="{x:Null}" WindowPositionLeft="{x:Null}" WindowPositionTop="{x:Null}" CreateFormId="d1af8e28-4ee4-4dd1-9453-1b13a5cf4015" DevTools="False" DisableMaximizeButton="False" DisableMinimizeButton="False" DisableSanitize="False" DisplayName="Create Form" EnableAccessibility="False" FormHeight="600" FormSchema="%[{&quot;label&quot;:&quot;User Input&quot;,&quot;placeholder&quot;:&quot;Enter your question here...&quot;,&quot;tableView&quot;:true,&quot;key&quot;:&quot;strUserInput&quot;,&quot;type&quot;:&quot;textfield&quot;,&quot;input&quot;:true},{&quot;label&quot;:&quot;Get response&quot;,&quot;disableOnInvalid&quot;:true,&quot;tableView&quot;:false,&quot;key&quot;:&quot;submit&quot;,&quot;properties&quot;:{&quot;closeOnSubmit&quot;:&quot;false&quot;},&quot;custom&quot;:&quot;instance.emit('executeDoBlock', instance.component);&quot;,&quot;type&quot;:&quot;button&quot;,&quot;input&quot;:true,&quot;isResetData&quot;:true},{&quot;label&quot;:&quot;User Input&quot;,&quot;disabled&quot;:true,&quot;tableView&quot;:true,&quot;key&quot;:&quot;strUserInputShow&quot;,&quot;conditional&quot;:{&quot;show&quot;:false,&quot;when&quot;:&quot;strUserInputShowH&quot;},&quot;type&quot;:&quot;textarea&quot;,&quot;input&quot;:true},{&quot;label&quot;:&quot;Response&quot;,&quot;disabled&quot;:true,&quot;tableView&quot;:true,&quot;key&quot;:&quot;strResponse&quot;,&quot;type&quot;:&quot;textarea&quot;,&quot;input&quot;:true},{&quot;label&quot;:&quot;Quit&quot;,&quot;theme&quot;:&quot;warning&quot;,&quot;tableView&quot;:false,&quot;key&quot;:&quot;quit&quot;,&quot;custom&quot;:&quot;instance.emit('executeDoBlock', instance.component);&quot;,&quot;input&quot;:true,&quot;type&quot;:&quot;button&quot;,&quot;isResetData&quot;:false},{&quot;label&quot;:&quot;strUserInputShowH&quot;,&quot;key&quot;:&quot;strUserInputShowH&quot;,&quot;type&quot;:&quot;hidden&quot;,&quot;input&quot;:true,&quot;tableView&quot;:false}]" FormTheme="{}{&quot;Activities&quot;:[&quot;FORMS&quot;],&quot;Id&quot;:&quot;100120&quot;,&quot;Name&quot;:&quot;Default&quot;,&quot;BaseCss&quot;:&quot;./assets/css/themes/uipath.bootstrap.min.css&quot;,&quot;ImageSrc&quot;:&quot;./assets/themeicons/uipath.png&quot;,&quot;OverrideCssUrl&quot;:&quot;./assets/css/themes/uipath.custom.css&quot;,&quot;UserStyleOverrides&quot;:&quot;&quot;,&quot;Properties&quot;:&quot;&quot;,&quot;IsCustomTheme&quot;:false,&quot;Version&quot;:1,&quot;ThemeVersion&quot;:1}" FormWidth="800" GenerateInputFields="True" sap:VirtualizedContainerService.HintSize="532.8,1426.4" sap2010:WorkflowViewState.IdRef="FormActivity_1" IsReadOnly="False" MaxColumnsForSchemaGeneration="6" RunDoBlockFirst="False" RunInIsolatedMode="True" StartAsMinimized="False">
+    <ufa:FormActivity CreateFormActivityFileName="{x:Null}" CreateFormActivityFilePath="{x:Null}" Dismissed="{x:Null}" FormFieldsInputData="{x:Null}" FormFieldsOutputData="{x:Null}" FormTitle="{x:Null}" IconPath="{x:Null}" LocalCSSFilePath="{x:Null}" SelectedButton="{x:Null}" TimeoutInSeconds="{x:Null}" WindowPositionLeft="{x:Null}" WindowPositionTop="{x:Null}" CreateFormId="d1af8e28-4ee4-4dd1-9453-1b13a5cf4015" DevTools="False" DisableMaximizeButton="False" DisableMinimizeButton="False" DisableSanitize="False" DisplayName="Create Form" EnableAccessibility="False" FormHeight="600" FormSchema="%[{&quot;label&quot;:&quot;User Input&quot;,&quot;placeholder&quot;:&quot;Enter your question here...&quot;,&quot;tableView&quot;:true,&quot;key&quot;:&quot;strUserInput&quot;,&quot;type&quot;:&quot;textfield&quot;,&quot;input&quot;:true},{&quot;label&quot;:&quot;Get response&quot;,&quot;disableOnInvalid&quot;:true,&quot;tableView&quot;:false,&quot;key&quot;:&quot;submit&quot;,&quot;properties&quot;:{&quot;closeOnSubmit&quot;:&quot;false&quot;},&quot;custom&quot;:&quot;instance.emit('executeDoBlock', instance.component);&quot;,&quot;type&quot;:&quot;button&quot;,&quot;input&quot;:true,&quot;isResetData&quot;:true},{&quot;label&quot;:&quot;User Input&quot;,&quot;disabled&quot;:true,&quot;tableView&quot;:true,&quot;key&quot;:&quot;strUserInputShow&quot;,&quot;conditional&quot;:{&quot;show&quot;:false,&quot;when&quot;:&quot;strUserInputShowH&quot;},&quot;type&quot;:&quot;textarea&quot;,&quot;input&quot;:true},{&quot;label&quot;:&quot;Response&quot;,&quot;disabled&quot;:true,&quot;tableView&quot;:true,&quot;key&quot;:&quot;strResponse&quot;,&quot;type&quot;:&quot;textarea&quot;,&quot;input&quot;:true},{&quot;label&quot;:&quot;Quit&quot;,&quot;theme&quot;:&quot;warning&quot;,&quot;tableView&quot;:false,&quot;key&quot;:&quot;quit&quot;,&quot;custom&quot;:&quot;instance.emit('executeDoBlock', instance.component);&quot;,&quot;input&quot;:true,&quot;type&quot;:&quot;button&quot;,&quot;isResetData&quot;:false},{&quot;label&quot;:&quot;strUserInputShowH&quot;,&quot;key&quot;:&quot;strUserInputShowH&quot;,&quot;type&quot;:&quot;hidden&quot;,&quot;input&quot;:true,&quot;tableView&quot;:false}]" FormTheme="{}{&quot;Activities&quot;:[&quot;FORMS&quot;],&quot;Id&quot;:&quot;100120&quot;,&quot;Name&quot;:&quot;Default&quot;,&quot;BaseCss&quot;:&quot;./assets/css/themes/uipath.bootstrap.min.css&quot;,&quot;ImageSrc&quot;:&quot;./assets/themeicons/uipath.png&quot;,&quot;OverrideCssUrl&quot;:&quot;./assets/css/themes/uipath.custom.css&quot;,&quot;UserStyleOverrides&quot;:&quot;&quot;,&quot;Properties&quot;:&quot;&quot;,&quot;IsCustomTheme&quot;:false,&quot;Version&quot;:1,&quot;ThemeVersion&quot;:1}" FormWidth="800" GenerateInputFields="True" sap:VirtualizedContainerService.HintSize="532.8,1427.2" sap2010:WorkflowViewState.IdRef="FormActivity_1" IsReadOnly="False" MaxColumnsForSchemaGeneration="6" RunDoBlockFirst="False" RunInIsolatedMode="True" StartAsMinimized="False">
       <ufa:FormActivity.Body>
         <ActivityAction x:TypeArguments="scg:Dictionary(x:String, x:Object)">
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="496,1300" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="496,1300.8" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="strJsonRequest" />
               <Variable x:TypeArguments="x:Int32" Name="intStatus" />
@@ -146,7 +155,9 @@
                 <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
               </ui:HttpClient.Cookies>
               <ui:HttpClient.Headers>
-                <InArgument x:TypeArguments="x:String" x:Key="Authorization">Bearer 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</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="Authorization">
+                  <VisualBasicValue x:TypeArguments="x:String" ExpressionText="&quot;Bearer &quot;+strAPIKey" />
+                </InArgument>
               </ui:HttpClient.Headers>
               <ui:HttpClient.Parameters>
                 <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
@@ -158,7 +169,7 @@
             <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="433.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Status: &quot;+intStatus.ToString]" />
             <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="433.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Response: &quot;+strResponse]" />
             <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="433.6,60" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_1" JsonObject="[jsonObjectResponse]" JsonString="[strResponse]" />
-            <Assign sap:VirtualizedContainerService.HintSize="433.6,80.8" sap2010:WorkflowViewState.IdRef="Assign_2">
+            <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_2">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[strChatResponse]</OutArgument>
               </Assign.To>
