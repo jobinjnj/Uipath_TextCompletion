@@ -110,7 +110,7 @@
         <OutArgument x:TypeArguments="x:String">[strAPIKey]</OutArgument>
       </Assign.To>
       <Assign.Value>
-        <InArgument x:TypeArguments="x:String">Pass your API Key here</InArgument>
+        <InArgument x:TypeArguments="x:String">Pass your API Key</InArgument>
       </Assign.Value>
     </Assign>
     <ui:ReadTextFile File="{x:Null}" Content="[strJsonRequestTemplate]" DisplayName="Read Text File" FileName="JsonRequest.txt" sap:VirtualizedContainerService.HintSize="532.8,80.8" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
